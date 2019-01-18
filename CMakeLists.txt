@@ -61,6 +61,8 @@ ADD_EXECUTABLE(quartet_sdf src/main_sdf.cpp)
 TARGET_LINK_LIBRARIES(quartet_sdf quartet)
 ADD_EXECUTABLE(obj2sdf src/obj_to_sdf.cpp)
 TARGET_LINK_LIBRARIES(obj2sdf quartet)
+ADD_EXECUTABLE(sphere_example src/sphere_example.cpp)
+TARGET_LINK_LIBRARIES(sphere_example quartet)
 
 FIND_PACKAGE(OpenGL REQUIRED)
 FIND_PACKAGE(GLUT REQUIRED)
