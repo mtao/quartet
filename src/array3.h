@@ -32,6 +32,10 @@ struct Array3
     Array3(void)
         : ni(0), nj(0), nk(0)
     {}
+    Array3(const Array3& arr) = default;
+    Array3(Array3&& arr) = default;
+    Array3& operator=(const Array3& arr) = default;
+    Array3& operator=(Array3&& arr) = default;
 
     Array3(int ni_, int nj_, int nk_)
         : ni(ni_), nj(nj_), nk(nk_), a(ni_*nj_*nk_)
