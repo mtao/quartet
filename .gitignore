@@ -33,3 +33,6 @@ quartet_release
 view_tet
 view_tet_release
 
+.*.swp
+.*.swo
+*~

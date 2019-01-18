@@ -1,6 +1,7 @@
 #include "make_tet_mesh.h"
 #include "make_signed_distance.h"
 #include "read_obj.h"
+#include "read_sdf.h"
 #include "feature.h"
 #include "trimesh.h"
 #include <sstream>
@@ -23,7 +24,7 @@ main(int argc,
     char* featureFile = NULL, *surfaceFile = NULL;
     float angleThreshold;
 
-    if (argc < 4 || argc > 12) {
+    if (argc < 3 || argc > 12) {
         usage = true;
         failure = true;
     }
@@ -101,7 +102,7 @@ main(int argc,
     }
 
     if (usage) {
-        std::printf("usage: quartet_sdf <input.sdf> <dx> <output.tet> "
+        std::printf("usage: quartet_sdf <input.sdf> <output.tet> "
                     "[-f <feature.feat>] "
                     "[-s <surface.obj>] [-i] [-o] \n"
                     "  -f -- Match the features in the given "
@@ -171,15 +172,15 @@ main(int argc,
     }
 
     // Write it out
-    std::printf("Writing mesh to file: %s\n", argv[3]);
-    bool result = mesh.writeToFile(argv[3]);
+    std::printf("Writing mesh to file: %s\n", argv[2]);
+    bool result = mesh.writeToFile(argv[2]);
     if (!result)
     {
         std::printf("ERROR: Failed to write mesh to file.\n");
     }
 
     // Strip off file extension for creating other files.
-    std::string filenameStr(argv[3]);
+    std::string filenameStr(argv[2]);
     if (filenameStr.find_last_of('.') != std::string::npos)
     {
         filenameStr = filenameStr.substr(0, filenameStr.find_last_of('.'));

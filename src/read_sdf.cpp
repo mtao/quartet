@@ -4,7 +4,7 @@
 
 
 bool
-read_objfile(std::unique_ptr<SDF>& sdfptr,
+read_sdffile(std::unique_ptr<SDF>& sdfptr,
              const char *filename_format,...) {
 
     va_list ap;
@@ -57,7 +57,7 @@ bool write_sdffile(const SDF& sdf,
 #endif
     va_end(ap);
     if(!output.good()) return false;
-    output << sdf.phi.ni 
+    output << sdf.phi.ni  << " "
         << sdf.phi.nj << " "
         << sdf.phi.nk << " "
         << std::endl;

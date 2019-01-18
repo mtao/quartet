@@ -4,8 +4,8 @@
 #include <memory>
 
 bool
-read_objfile(std::unique_ptr<SDF>& sdfptr,
+read_sdffile(std::unique_ptr<SDF>& sdfptr,
              const char *filename_format,...);
 bool
-write_objfile(SDF& sdfptr,
+write_sdffile(const SDF& sdf,
              const char *filename_format,...);
